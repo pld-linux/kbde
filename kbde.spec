@@ -1,78 +1,65 @@
-%define my_name        kbde
-%define my_version     1.0.0
-%define my_release     1
-
-Name:        %{my_name}
-Version:     %{my_version}
-Release:     %{my_release}
-License:     GPL
-Group:       Applications/System
-Summary:     Keyboard emulation utility
-Packager:    Valery Reznic <valery_reznic@users.sourceforge.net>
-Source:      %{name}-%{version}.tar.gz
-Url:         http://kbde.sourceforge.net
-BuildRoot:   %{_builddir}/%{buildsubdir}-install-root
+Summary:	Keyboard emulation utility
+Summary(pl):	Narzêdzie do emulacji klawiatury
+Name:		kbde
+Version:	1.0.1
+Release:	1
+License:	GPL
+Group:		Applications/System
+Source0:	http://dl.sourceforge.net/kbde/%{name}-%{version}.tar.gz
+# Source0-md5:	fb323bc78ef8f959fe4ffea43baba454
+URL:		http://kbde.sourceforge.net/
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Keyboard emulation utility supposed to work with kbde-driver
-to emulate keybiard input on the x86 computer.
+Keyboard emulation utility supposed to work with kbde-driver to
+emulate keyboard input on the x86 computer.
 
-%prep
-%setup
-
-%build
-make all
-
-%install
-if [ "$RPM_BUILD_ROOT" != "/" ]; then
-   rm -rf $RPM_BUILD_ROOT
-else
-   :
-fi
-make install DESTDIR="$RPM_BUILD_ROOT" MANPAGE_SUFFIX=".gz"
-
-%clean
-if [ "$RPM_BUILD_ROOT" != "/" ]; then
-   rm -rf $RPM_BUILD_ROOT
-else
-   :
-fi
-
-%files
-%defattr(-,root,root)
-
-/usr/bin/kbde
-%doc %{_mandir}/man1/kbde.1*
-
-%doc AUTHORS
-%doc ChangeLog
-%doc INSTALL
-%doc LICENSE
-%doc NEWS
-%doc README
-
-#### Devel Package ####
+%description -l pl
+Narzêdzie do emulacji klawiatury, które powinno dzia³aæ ze
+sterownikiem kbde-driver, emuluj±c wej¶cie z klawiatury na komputerach
+x86.
 
 %package devel
-Summary: keyboard emulation development library
-Group:   System Environment/Libraries
+Summary:	Keyboard emulation development library
+Summary(pl):	Biblioteka do emulacji klawiatury
+License:	LGPL
+Group:		Development/Libraries
 
 %description devel
-Library for generate strings that can be send to the 
-keyboard emulation driver for emulate keyboard input
+Library for generate strings that can be send to the keyboard
+emulation driver for emulate keyboard input.
+
+%description devel -l pl
+Biblioteka s³u¿±ca do generowania ³añcuchów, które mog± byæ wys³ane
+do sterownika emulacji klawiatury.
+
+%prep
+%setup -q
+
+%build
+%{__make} \
+	CFLAGS="%{rpmcflags} -Wall"
+
+%install
+rm -rf $RPM_BUILD_ROOT
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(644,root,root,755)
+%doc AUTHORS ChangeLog NEWS README
+%attr(755,root,root) %{_bindir}/kbde
+%{_mandir}/man1/kbde.1*
 
 %files devel
-%defattr(-,root,root)
-/usr/include/kbde/kbde.h
-/usr/lib/libkbde.a
-
-%doc %{_mandir}/man3/kbde.3*
-%doc %{_mandir}/man3/kbde_ascii.3*
-%doc %{_mandir}/man3/kbde_misc.3*
-%doc %{_mandir}/man7/xt_kbde_scancode.7*
-
-%doc LICENSE.LIB
-
-%changelog
-* Thu Nov 20 2003 <valery_reznic@users.sourceforge.net> 1.0.0-1
-- Initial public release.
+%defattr(644,root,root,755)
+%{_includedir}/kbde/kbde.h
+%{_libdir}/libkbde.a
+%{_mandir}/man3/kbde.3*
+%{_mandir}/man3/kbde_ascii.3*
+%{_mandir}/man3/kbde_misc.3*
+%{_mandir}/man7/xt_kbde_scancode.7*
