@@ -1,12 +1,12 @@
 Summary:	Keyboard emulation utility
 Summary(pl):	Narzêdzie do emulacji klawiatury
 Name:		kbde
-Version:	1.0.1
+Version:	1.1.2
 Release:	1
-License:	GPL
+License:	GPL v2
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/kbde/%{name}-%{version}.tar.gz
-# Source0-md5:	fb323bc78ef8f959fe4ffea43baba454
+# Source0-md5:	2217c2b1aaae2c5ef5dcd800bbde0021
 URL:		http://kbde.sourceforge.net/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -57,6 +57,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
+%dir %{_includedir}/kbde
 %{_includedir}/kbde/kbde.h
 %{_libdir}/libkbde.a
 %{_mandir}/man3/kbde.3*
