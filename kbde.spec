@@ -8,6 +8,7 @@ Group:		Applications/System
 Source0:	http://dl.sourceforge.net/kbde/%{name}-%{version}.tar.gz
 # Source0-md5:	2217c2b1aaae2c5ef5dcd800bbde0021
 URL:		http://kbde.sourceforge.net/
+BuildRequires:	gawk
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -26,8 +27,8 @@ License:	LGPL
 Group:		Development/Libraries
 
 %description devel
-Library for generate strings that can be send to the keyboard
-emulation driver for emulate keyboard input.
+Library for generating strings that can be sent to the keyboard
+emulation driver to emulate keyboard input.
 
 %description devel -l pl
 Biblioteka s³u¿±ca do generowania ³añcuchów, które mog± byæ wys³ane
