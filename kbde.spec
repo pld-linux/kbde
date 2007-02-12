@@ -1,5 +1,5 @@
 Summary:	Keyboard emulation utility
-Summary(pl):	Narzêdzie do emulacji klawiatury
+Summary(pl.UTF-8):   NarzÄ™dzie do emulacji klawiatury
 Name:		kbde
 Version:	1.1.2
 Release:	1
@@ -15,14 +15,14 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Keyboard emulation utility supposed to work with kbde-driver to
 emulate keyboard input on the x86 computer.
 
-%description -l pl
-Narzêdzie do emulacji klawiatury, które powinno dzia³aæ ze
-sterownikiem kbde-driver, emuluj±c wej¶cie z klawiatury na komputerach
+%description -l pl.UTF-8
+NarzÄ™dzie do emulacji klawiatury, ktÃ³re powinno dziaÅ‚aÄ‡ ze
+sterownikiem kbde-driver, emulujÄ…c wejÅ›cie z klawiatury na komputerach
 x86.
 
 %package devel
 Summary:	Keyboard emulation development library
-Summary(pl):	Biblioteka do emulacji klawiatury
+Summary(pl.UTF-8):   Biblioteka do emulacji klawiatury
 License:	LGPL
 Group:		Development/Libraries
 
@@ -30,8 +30,8 @@ Group:		Development/Libraries
 Library for generating strings that can be sent to the keyboard
 emulation driver to emulate keyboard input.
 
-%description devel -l pl
-Biblioteka s³u¿±ca do generowania ³añcuchów, które mog± byæ wys³ane
+%description devel -l pl.UTF-8
+Biblioteka sÅ‚uÅ¼Ä…ca do generowania Å‚aÅ„cuchÃ³w, ktÃ³re mogÄ… byÄ‡ wysÅ‚ane
 do sterownika emulacji klawiatury.
 
 %prep
