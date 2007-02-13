@@ -1,5 +1,5 @@
 Summary:	Keyboard emulation utility
-Summary(pl.UTF-8):   Narzędzie do emulacji klawiatury
+Summary(pl.UTF-8):	Narzędzie do emulacji klawiatury
 Name:		kbde
 Version:	1.1.2
 Release:	1
@@ -22,7 +22,7 @@ x86.
 
 %package devel
 Summary:	Keyboard emulation development library
-Summary(pl.UTF-8):   Biblioteka do emulacji klawiatury
+Summary(pl.UTF-8):	Biblioteka do emulacji klawiatury
 License:	LGPL
 Group:		Development/Libraries
 
