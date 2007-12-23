@@ -1,14 +1,15 @@
 Summary:	Keyboard emulation utility
 Summary(pl.UTF-8):	Narzędzie do emulacji klawiatury
 Name:		kbde
-Version:	1.1.2
+Version:	1.1.6
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/kbde/%{name}-%{version}.tar.gz
-# Source0-md5:	2217c2b1aaae2c5ef5dcd800bbde0021
+# Source0-md5:	c9fdf1683b3d5ad4d3e9bff6d658ade7
 URL:		http://kbde.sourceforge.net/
 BuildRequires:	gawk
+BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -36,6 +37,7 @@ do sterownika emulacji klawiatury.
 
 %prep
 %setup -q
+%{__sed} -i 's,LIB_DIR = $(DESTDIR)/usr/lib,LIB_DIR = $(DESTDIR)%{_libdir},g' lib/Makefile
 
 %build
 %{__make} \
